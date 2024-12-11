@@ -40,12 +40,12 @@ import {
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import {useToast} from "@/hooks/use-toast";
-
 import {
     getProductsManagement,
     createProductManagement,
     updateProductManagement,
-    deleteProductManagement, getDetailsProductManagement,
+    deleteProductManagement,
+    getDetailsProductManagement,
 } from "@/services/productManagement.js";
 import {getCategoriesManagement} from "@/services/categoryManagement.js";
 import {
@@ -618,7 +618,6 @@ export default function DashboardProduct() {
                         </Button>
                     </div>
                 </div>
-
                 <div className="grid gap-4 grid-cols-1">
                     <Card>
                         <CardContent className="p-0 md:p-6">
@@ -997,15 +996,11 @@ export default function DashboardProduct() {
             <Dialog open={isDeleteModalOpen} onOpenChange={setIsDeleteModalOpen}>
                 <DialogContent>
                     <DialogHeader className="space-y-4">
-                        <DialogTitle className="text-left text-[30px] font-bold leading-[36px]">
-                            Hapus Kategori
-                        </DialogTitle>
-                        <Typography
-                            variant="p-regular"
-                            className="text-left max-w-lg text-slate-500"
-                        >
-                            Apakah Anda yakin ingin menghapus kategori ini? Kategori yang
-                            dihapus tidak dapat dikembalikan.
+                        <DialogTitle className="text-left text-[30px] font-bold leading-[36px]">Hapus
+                            Produk</DialogTitle>
+                        <Typography variant="p-regular" className="text-left max-w-lg text-slate-500">
+                            Apakah Anda yakin ingin menghapus kategori ini? Kategori yang dihapus tidak dapat
+                            dikembalikan.
                         </Typography>
                     </DialogHeader>
                     <div className="flex justify-end gap-4">

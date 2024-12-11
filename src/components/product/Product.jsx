@@ -12,13 +12,12 @@ import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {Badge} from "@/components/ui/badge";
 
 const Product = ({category_name, contact, img_file, price, title, description}) => {
-
     return (
-        <Card>
+        <Card className="flex flex-col h-full">
             <div className="rounded-md overflow-hidden">
                 <LazyLoadImage src={img_file} alt={title} className="w-full h-96 object-cover"/>
             </div>
-            <CardHeader className="space-y-4">
+            <CardHeader className="space-y-4 flex-grow">
                 <Badge
                     variant="default"
                     className="bg-emerald-500 text-white max-w-max px-2 py-1 rounded-full"
@@ -32,14 +31,14 @@ const Product = ({category_name, contact, img_file, price, title, description}) 
                     Rp. {price}
                 </Typography>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
                 <CardDescription>
                     <Typography variant="p" type="description" className="text-justify">
-                        {description.split('.').slice(0, 1).join('.')+'.'}
+                        {description.split('.').slice(0, 1).join('.') + '.'}
                     </Typography>
                 </CardDescription>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="mt-auto">
                 <a
                     href={contact}
                     target="_blank"
@@ -53,7 +52,8 @@ const Product = ({category_name, contact, img_file, price, title, description}) 
                 </a>
             </CardFooter>
         </Card>
-    );
+    )
+
 };
 
 export default Product;

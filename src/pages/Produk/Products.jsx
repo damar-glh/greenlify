@@ -213,7 +213,7 @@ export default function Products() {
 
         if (error) {
             if (error === 'ERR_CONNECTION_REFUSED') {
-                return <ProductSkeletonList count={4}/>;
+                return <ProductSkeletonList count={8}/>;
             } else {
                 return (
                     <div className="col-span-full flex flex-col items-center justify-center w-full p-8"
@@ -264,7 +264,7 @@ export default function Products() {
                         alt="Home"
                         className="w-full h-[481px] object-cover rounded-[20px] shadow-lg"
                     />
-                    <div className="absolute inset-0 bg-black opacity-40 rounded-[20px]"/>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 rounded-[20px]"/>
                     <div className="absolute inset-0 z-10 flex flex-col gap-6 items-center justify-center">
                         <Typography
                             variant="title"
@@ -351,6 +351,9 @@ export default function Products() {
                                 onChange={handleSearchChange}
                                 className="h-10 text-emerald-600 border-2 border-emerald-500 w-full"
                             />
+                            <Button variant="primary" className="h-10" onClick={handleSearchChange}>
+                                Cari
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -360,7 +363,7 @@ export default function Products() {
                     {renderProductContent()}
                 </div>
 
-                {products.length > 0 && (
+                {pagination.total_data > pagination.per_page && (
                     <div className="w-10/12 mt-8 sm:mt-[33px]">
                         <Pagination className="gap-5 flex flex-wrap justify-center">
                             <PaginationPrevious
