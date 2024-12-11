@@ -8,7 +8,7 @@ const modules = {
     ['bold', 'italic', 'underline', 'strike'],
     ['blockquote', 'code-block'],
     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-    ['link', 'image'],
+    ['link'],
     [{ 'font': [] }],
     [{ 'align': [] }],
     [{ 'color': [] }, { 'background': [] }],  
@@ -21,7 +21,7 @@ const formats = [
   'bold', 'italic', 'underline', 'strike',
   'blockquote', 'code-block',
   'list', 'bullet',
-  'link', 'image', 'font', 'align', 'color'
+  'link', 'font', 'align', 'color'
 ];
 
 export function Editor({ value, onChange }) {
