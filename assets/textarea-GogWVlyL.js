@@ -1,0 +1,2 @@
+import{r as a,j as o,G as s}from"./index-Bjp6i5Kc.js";const d=a.forwardRef(({className:e,...r},t)=>o.jsx("textarea",{className:s("flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-[14px] shadow-sm placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-[16px]",e),ref:t,...r}));d.displayName="Textarea";export{d as T};
+//# sourceMappingURL=textarea-GogWVlyL.js.map
