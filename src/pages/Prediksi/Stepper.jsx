@@ -19,12 +19,12 @@ const Stepper = () => {
   // Fungsi untuk menangani hasil prediksi dari PredictionSection
   const handlePredictionComplete = useCallback(
     (predictionResult, dataTabel, CaraPengolahan) => {
-      console.log(
-        "Prediction Complete:",
-        predictionResult,
-        dataTabel,
-        CaraPengolahan
-      );
+      // console.log(
+      //   "Prediction Complete:",
+      //   predictionResult,
+      //   dataTabel,
+      //   CaraPengolahan
+      // );
       setHasilPrediksi(predictionResult);
       setDetailInformasi(dataTabel);
       setInfoPengolahan(CaraPengolahan);
@@ -55,10 +55,10 @@ const Stepper = () => {
         "-=0.4"
       );
 
-    if (hasilPrediksi || detailInformasi || infoPengolahan) {
-      console.log("Hasil Prediksi Terbaru:", hasilPrediksi);
-      console.log(infoPengolahan[hasilPrediksi.prediction]);
-    }
+    // if (hasilPrediksi || detailInformasi || infoPengolahan) {
+    //   console.log("Hasil Prediksi Terbaru:", hasilPrediksi);
+    //   console.log(infoPengolahan[hasilPrediksi.prediction]);
+    // }
   }, [hasilPrediksi, detailInformasi, infoPengolahan]);
 
   // Navigasi ke langkah berikutnya
