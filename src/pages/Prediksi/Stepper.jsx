@@ -19,12 +19,12 @@ const Stepper = () => {
   // Fungsi untuk menangani hasil prediksi dari PredictionSection
   const handlePredictionComplete = useCallback(
     (predictionResult, dataTabel, CaraPengolahan) => {
-      console.log(
-        "Prediction Complete:",
-        predictionResult,
-        dataTabel,
-        CaraPengolahan
-      );
+      // console.log(
+      //   "Prediction Complete:",
+      //   predictionResult,
+      //   dataTabel,
+      //   CaraPengolahan
+      // );
       setHasilPrediksi(predictionResult);
       setDetailInformasi(dataTabel);
       setInfoPengolahan(CaraPengolahan);
@@ -55,10 +55,10 @@ const Stepper = () => {
         "-=0.4"
       );
 
-    if (hasilPrediksi || detailInformasi || infoPengolahan) {
-      console.log("Hasil Prediksi Terbaru:", hasilPrediksi);
-      console.log(infoPengolahan[hasilPrediksi.prediction]);
-    }
+    // if (hasilPrediksi || detailInformasi || infoPengolahan) {
+    //   console.log("Hasil Prediksi Terbaru:", hasilPrediksi);
+    //   console.log(infoPengolahan[hasilPrediksi.prediction]);
+    // }
   }, [hasilPrediksi, detailInformasi, infoPengolahan]);
 
   // Navigasi ke langkah berikutnya
@@ -162,7 +162,7 @@ const Stepper = () => {
           ) : (
             <>
               <Typography variant="p" className="text-center mt-2">
-                Anda belum prediksi, voba prediksi dulu ya
+                Anda belum prediksi, coba prediksi dulu ya
               </Typography>
             </>
           )}
@@ -183,7 +183,7 @@ const Stepper = () => {
             <strong className="text-emerald-700">Prediksi</strong> Sampah
           </Typography>
         </div>
-        <div className="max-w-4xl text-center lg:text-center">
+        <div className="max-w-4xl text-justify lg:text-center px-6 md:px-6">
           <Typography variant="p" className="hero-description">
             Sistem canggih kami akan menganalisis gambar dan memberikan saran
             pengelolaan sampah yang tepat, mulai dari pemilahan hingga metode
@@ -193,7 +193,7 @@ const Stepper = () => {
           </Typography>
         </div>
       </div>
-      <div className="p-4 mt-12 max-w-[1512px] w-full mx-auto">
+      <div className="p-6 mt-12 max-w-[1512px] w-full mx-auto">
         {/* Linimasa */}
         <div className="mb-6 w-full">
           <div className="flex justify-between items-center">

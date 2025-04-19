@@ -257,7 +257,7 @@ const Blog = () => {
             <div className="w-full mt-[99px] h-auto flex flex-col items-center gap-[33px]">
                 {latestArticle && (
                     <section className="w-10/12 px-0 md:px-4 py-12 ">
-                        {renderLatestArticle()}
+                        {LatestBlogSkeleton()}
                     </section>
                 )}
                 <div className="max-w-sm md:max-w-xl text-center lg:text-left">

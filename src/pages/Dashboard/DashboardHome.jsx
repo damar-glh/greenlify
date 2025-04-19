@@ -26,7 +26,7 @@ import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
 import {Button} from "@/components/ui/button";
 import {
     Pagination,
-    PaginationContent,
+    PaginationContent, PaginationEllipsis,
     PaginationItem,
     PaginationLink, PaginationNext,
     PaginationPrevious
@@ -282,23 +282,36 @@ export default function DashboardHome() {
                                         }
                                     />
                                 </PaginationItem>
-                                {Array.from({length: Math.ceil(pagination.totalData / pagination.limit)},
-                                    (_, i) => i + 1).map((page) => (
-                                    <PaginationItem key={page}>
-                                        <PaginationLink
-                                            className="cursor-pointer"
-                                            onClick={() => {
-                                                const start = (page - 1) * pagination.limit + 1;
-                                                setPagination(prev => ({...prev, start}));
-                                            }}
-                                            isActive={
-                                                page === Math.ceil(pagination.start / pagination.limit)
-                                            }
-                                        >
-                                            {page}
-                                        </PaginationLink>
-                                    </PaginationItem>
-                                ))}
+                                {(() => {
+                                    const totalPages = Math.ceil(pagination.totalData / pagination.limit);
+                                    const currentPage = Math.ceil(pagination.start / pagination.limit);
+                                    const pagesToShow = [];
+                                    let start = Math.max(1, currentPage - 2);
+                                    const end = Math.min(totalPages, start + 4);
+
+                                    if (end - start < 4) {
+                                        start = Math.max(1, end - 4);
+                                    }
+
+                                    for (let page = start; page <= end; page++) {
+                                        pagesToShow.push(page);
+                                    }
+
+                                    return pagesToShow.map((page) => (
+                                        <PaginationItem key={page}>
+                                            <PaginationLink
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    const newStart = (page - 1) * pagination.limit + 1;
+                                                    setPagination(prev => ({...prev, start: newStart}));
+                                                }}
+                                                isActive={page === currentPage}
+                                            >
+                                                {page}
+                                            </PaginationLink>
+                                        </PaginationItem>
+                                    ));
+                                })()}
                                 <PaginationItem>
                                     <PaginationNext
                                         onClick={() => handlePageChange(pagination.next)}

@@ -239,7 +239,7 @@ export default function Header() {
                         </div>
 
                         <Button size="md" asChild className="shadow-md text-lg">
-                            <Link to="/klasifikasi">Klasifikasi</Link>
+                            <Link to="/prediksi">Klasifikasi</Link>
                         </Button>
                         {renderMobileAuthOptions()}
                     </div>

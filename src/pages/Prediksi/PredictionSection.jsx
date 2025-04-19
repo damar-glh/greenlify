@@ -102,27 +102,6 @@ const InformasiLengkap = {
   },
 };
 
-// Komponen untuk setiap baris tabel
-const TableRow = ({ label, value }) => (
-  <tr>
-    <td className="p-2">
-      <Typography variant="large" className="font-bold text-emerald-600">
-        {label}
-      </Typography>
-    </td>
-    <td className="p-2">
-      <Typography variant="large" className="font-bold text-emerald-600">
-        :
-      </Typography>
-    </td>
-    <td className="p-2">
-      <Typography variant="large" className="text-emerald-600">
-        {value}
-      </Typography>
-    </td>
-  </tr>
-);
-
 const PredictionSection = ({ onPredictionComplete }) => {
   //   const heroSectionRef = useRef(null);
   //   const classtificationRef = useRef([]);
@@ -404,44 +383,45 @@ const PredictionSection = ({ onPredictionComplete }) => {
                   <span>{(predictionResult.confidence * 100).toFixed(2)}%</span>
                 </Typography>
                 <div>
-                  <table className="w-full text-sm text-left text-emerald-600">
-                    <tbody>
-                      {dataTabel.map((row, index) => (
-                        <TableRow
-                          key={index}
-                          label={row.label}
-                          value={row.value}
-                        />
-                      ))}
-                      <tr>
-                        <td className="p-2">
-                          <Typography
+                  <div className="w-full text-emerald-600">
+                    {dataTabel.map((row, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col md:flex-row border-b border-gray-200 py-2"
+                        >
+                          <div className="font-bold md:w-1/4">{row.label}</div>
+                          <div className="hidden md:block mx-2">:</div>
+                          <div className="md:w-3/4">{row.value}</div>
+                        </div>
+                    ))}
+                    <div className="flex flex-col md:flex-row py-2">
+                      <div className="font-bold md:w-1/4">
+                        <Typography
                             variant="large"
                             className="text-emerald-600 font-bold"
-                          >
-                            Cara Pengolahan
-                          </Typography>
-                        </td>
-                        <td>:</td>
-                        <td className="p-2 w-full">
-                          <ul className="list-decimal pl-4 text-justify leading-loose">
-                            {CaraPengolahan[predictionResult.prediction]
+                        >
+                          Cara Pengolahan
+                        </Typography>
+                      </div>
+                      <div className="hidden md:block mx-2">:</div>
+                      <div className="md:w-3/4 mt-2 md:mt-0">
+                        <ul className="list-decimal pl-4 text-justify leading-loose">
+                          {CaraPengolahan[predictionResult.prediction]
                               .slice(0, 2)
                               .map((method, index) => (
-                                <li key={index} className="text-emerald-600">
-                                  <Typography
-                                    variant="p-regular"
-                                    className="text-emerald-600"
-                                  >
-                                    {method}
-                                  </Typography>
-                                </li>
+                                  <li key={index} className="text-emerald-600">
+                                    <Typography
+                                        variant="p-regular"
+                                        className="text-emerald-600"
+                                    >
+                                      {method}
+                                    </Typography>
+                                  </li>
                               ))}
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
